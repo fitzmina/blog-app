@@ -9,7 +9,7 @@ export async function createPost(formData: FormData) {
   const { isAuthenticated } = getKindeServerSession();
 
   if (!(await isAuthenticated())) {
-    redirect("/api/auth/login");
+    redirect("/api/auth/login?post_login_redirect_url=/create");
   }
 
   const title = formData.get("title") as string;
